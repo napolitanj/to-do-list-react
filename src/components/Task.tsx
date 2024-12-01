@@ -1,17 +1,20 @@
 import "../styles/TaskStyles.css";
 
-const Task = () => {
+interface Props {
+  title: string;
+  description: string;
+  dueDate: string;
+}
+
+const Task = ({ title, description, dueDate }: Props) => {
   return (
     <>
       <div className="task-container">
         <div className="task-header">
-          <h3 className="task-title">Task Title</h3>
-          <p className="due-date">This is the due date</p>
+          <h3 className="task-title">{title}</h3>
+          <p className="due-date">{dueDate}</p>
         </div>
-        <p className="task-description">
-          This is a task description. It should wrap appropriately in the
-          container and look really nice.
-        </p>
+        <p className="task-description">{description}</p>
         <div className="button-container">
           <button className="complete">Check</button>
           <button className="discard">Trash</button>
