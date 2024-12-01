@@ -9,11 +9,11 @@ const TaskEditor = ({ title, description, dueDate }: Props) => {
     <>
       <div className="editor-container">
         <p className="edit-title"></p>
-        <input>{title}</input>
+        <input></input>
         <p className="edit-description"></p>
-        <input>{description}</input>
+        <input></input>
         <p className="edit-due-date"></p>
-        <input>{dueDate}</input>
+        <input></input>
         <div className="button-container">
           <button>Save</button>
           <button>Discard</button>

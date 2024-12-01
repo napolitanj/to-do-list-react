@@ -1,11 +1,18 @@
 import "../styles/NavBarStyles.css";
 
-const Navbar = () => {
+interface Props {
+  onClick: () => void;
+}
+
+const Navbar = ({ onClick }: Props) => {
   return (
     <>
       <nav className="header-nav">
         <img className="header-icon" src="src\assets\react-emblem.png"></img>
         <h1 className="header-title">Task Organizer</h1>
+        <button onClick={onClick} className="addTask">
+          Add a Task
+        </button>
         <form className="" role="search">
           <input
             className=""
