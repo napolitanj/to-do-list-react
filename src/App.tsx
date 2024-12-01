@@ -1,10 +1,12 @@
-import "./App.css";
-import Navbar from "./Navbar";
+import "./styles/App.css";
+import Navbar from "./components/Navbar";
+import Task from "./components/Task";
 
 function App() {
   return (
     <>
       <Navbar></Navbar>
+      <Task></Task>
     </>
   );
 }

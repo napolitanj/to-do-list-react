@@ -1,0 +1,10 @@
+.task-container {
+
+    background-color: #A39E92;
+
+    .task-header {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+}
