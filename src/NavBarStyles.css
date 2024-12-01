@@ -1,0 +1,20 @@
+.header-nav {
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: #E7DBD6;
+    font-family: 'Calibri', sans-serif;
+
+    .header-icon {
+        height:7vw;
+    }
+    .header-title {
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .header-nav {
+        flex-direction:column;
+    }
+}
