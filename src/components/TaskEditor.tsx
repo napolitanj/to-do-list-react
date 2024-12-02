@@ -1,22 +1,27 @@
+import "/src/styles/EditorStyles.css";
+
 interface Props {
   title: string;
   description: string;
   dueDate: string;
+  onClick: () => void;
 }
 
-const TaskEditor = ({ title, description, dueDate }: Props) => {
+const TaskEditor = ({ title, description, dueDate, onClick }: Props) => {
   return (
     <>
-      <div className="editor-container">
-        <p className="edit-title"></p>
-        <input></input>
-        <p className="edit-description"></p>
-        <input></input>
-        <p className="edit-due-date"></p>
-        <input></input>
-        <div className="button-container">
-          <button>Save</button>
-          <button>Discard</button>
+      <div className="editor-overlay">
+        <div className="editor-container">
+          <label className="edit-title">Title</label>
+          <input></input>
+          <label className="edit-description">Description</label>
+          <input></input>
+          <label className="edit-due-date">Due Date</label>
+          <input></input>
+          <div className="button-container">
+            <button>Save</button>
+            <button onClick={onClick}>Discard</button>
+          </div>
         </div>
       </div>
     </>

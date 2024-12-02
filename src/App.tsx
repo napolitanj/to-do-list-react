@@ -24,7 +24,12 @@ function App() {
         dueDate={testDueDate}
       ></Task>
       {editorVisible && (
-        <TaskEditor title="" description="" dueDate=""></TaskEditor>
+        <TaskEditor
+          title=""
+          description=""
+          dueDate=""
+          onClick={toggleEditor}
+        ></TaskEditor>
       )}
     </>
   );

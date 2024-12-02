@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+Project Goals:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Be able to add and remove tasks that have a due date and description.
 
-Currently, two official plugins are available:
+- Should be able to edit description and due date
+- Tasks should prompt if the user is sure to delete them when they delete
+- Task should go into completed folder when marked as completed
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Completed folder
 
-## Expanding the ESLint configuration
+- should have the option to move the task back to to-do-list
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Folders
 
-- Configure the top-level `parserOptions` property like this:
+- Should be able to sort tasks into folders / projects
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Search
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- should be able to search for tasks and folders
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Interface
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- folders are visible on the left menu
+- Tasks in the window to the right
