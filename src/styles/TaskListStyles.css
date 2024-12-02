@@ -2,4 +2,30 @@
     background-color: #E6D1CF;
     width: 70%;
     height: 100vh;
+    text-align:center;
+
+    .task-list {
+        display: flex;
+        justify-content:center;
+        align-items:flex-start;
+    }
+
+    li {
+        padding:1em;
+        margin:1em;
+        border: solid 1px;
+        list-style-type:none;
+        text-align:left;
+
+        .title-date-container {
+            gap:2em;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .buttons-container {
+            display:flex;
+            justify-content: space-between;
+        }
+    }
 }

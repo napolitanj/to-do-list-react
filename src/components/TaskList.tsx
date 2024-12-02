@@ -8,19 +8,27 @@ const TaskList = ({ tasks }: Props) => {
   return (
     <>
       <div className="task-list-container">
-        {tasks.map((task, index) => (
-          <li key={index}>
-            <p>
-              <strong>Title:</strong> {task.title}
-            </p>
-            <p>
-              <strong>Description:</strong> {task.description}
-            </p>
-            <p>
-              <strong>Date:</strong> {task.date}
-            </p>
-          </li>
-        ))}
+        <h2>Your tasks</h2>
+        <div className="task-list">
+          {tasks.map((task, index) => (
+            <li key={index}>
+              <div className="title-date-container">
+                <p>
+                  <strong>{task.title}</strong>
+                </p>
+                <p>
+                  <strong>Due:</strong> {task.date}
+                </p>
+              </div>
+              <p>{task.description}</p>
+              <div className="buttons-container">
+                <button>✔</button>
+                <button>🗑</button>
+                <button>✎</button>
+              </div>
+            </li>
+          ))}
+        </div>
       </div>
     </>
   );
