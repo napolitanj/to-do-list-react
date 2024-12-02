@@ -8,7 +8,8 @@
     display: flex; 
     justify-content: center; 
     align-items: center;
-    z-index: 1000; 
+    z-index: 1000;
+    font-family: 'Calibri', sans-serif; 
 
     .editor-container {
         display:flex;
@@ -16,10 +17,23 @@
         align-items:center;
         flex-direction: column;
         z-index:1001;
+        background-color: #E6D1CF;
+        padding:1em;
+
+        .title-description-date {
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-start;
+
+            input {
+                margin-bottom: 1em;
+            }
+        }
 
         .button-container {
             display:flex;
-            gap: 1em
+            gap: 1em;
+            margin: .5em;
         }
     }
 }

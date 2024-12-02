@@ -1,6 +1,7 @@
 .task-container {
 
     background-color: #A5AAAB;
+    font-family: 'Calibri', sans-serif;
 
     .task-header {
         display:flex;

@@ -6,7 +6,7 @@ interface Props {
   updateTasks: (newTask: {
     title: string;
     description: string;
-    date: string;
+    date: Date;
   }) => void;
 }
 
@@ -25,18 +25,30 @@ const TaskEditor = ({ onClick, updateTasks }: Props) => {
     <>
       <div className="editor-overlay">
         <div className="editor-container">
-          <label className="edit-title">Title</label>
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          ></input>
-          <label className="edit-description">Description</label>
-          <input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></input>
-          <label className="edit-due-date">Due Date</label>
-          <input value={date} onChange={(e) => setDate(e.target.value)}></input>
+          <div className="title-description-date">
+            <label>
+              <strong>Title</strong>
+            </label>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            ></input>
+            <label>
+              <strong>Due Date</strong>
+            </label>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            ></input>
+            <label className="edit-description">
+              <strong>Description</strong>
+            </label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
           <div className="button-container">
             <button onClick={handleSave}>Save</button>
             <button onClick={onClick}>Discard</button>

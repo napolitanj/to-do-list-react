@@ -17,12 +17,9 @@ function App() {
   const updateTasks = (newTask: {
     title: string;
     description: string;
-    date: string;
+    date: date;
   }) => {
     setTasks((prev) => [...prev, newTask]);
-    {
-      toggleEditor;
-    }
     console.log(tasks);
   };
 

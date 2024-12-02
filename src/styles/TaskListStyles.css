@@ -3,6 +3,7 @@
     width: 70%;
     height: 100vh;
     text-align:center;
+    font-family: 'Calibri', sans-serif;
 
     .task-list {
         display: flex;
@@ -16,6 +17,7 @@
         border: solid 1px;
         list-style-type:none;
         text-align:left;
+        background-color: #D2A295;
 
         .title-date-container {
             gap:2em;
@@ -25,7 +27,7 @@
 
         .buttons-container {
             display:flex;
-            justify-content: space-between;
+            justify-content: space-around;
         }
     }
 }
