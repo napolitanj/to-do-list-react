@@ -1,34 +1,42 @@
 import "./styles/App.css";
 import Navbar from "./components/Navbar";
-import Task from "./components/Task";
 import TaskEditor from "./components/TaskEditor";
+import Folders from "./components/Folders";
+import TaskList from "./components/TaskList";
 import { useState } from "react";
 
 function App() {
-  const testTitle = "Task Title";
-  const testDescription =
-    "This is a task description. It should wrap appropriately in the container and look really nice.";
-  const testDueDate = "Due Date";
   const [editorVisible, setEditorVisible] = useState(false);
+  const [tasks, setTasks] = useState([]);
+  const [folders, setFolders] = useState([]);
 
   const toggleEditor = () => {
     setEditorVisible((prev) => !prev);
   };
 
+  const updateTasks = (newTask: {
+    title: string;
+    description: string;
+    date: string;
+  }) => {
+    setTasks((prev) => [...prev, newTask]);
+    {
+      toggleEditor;
+    }
+    console.log(tasks);
+  };
+
   return (
     <>
       <Navbar onClick={toggleEditor}></Navbar>
-      <Task
-        title={testTitle}
-        description={testDescription}
-        dueDate={testDueDate}
-      ></Task>
+      <div className="app-interface">
+        <Folders folders={folders}></Folders>
+        <TaskList tasks={tasks}></TaskList>
+      </div>
       {editorVisible && (
         <TaskEditor
-          title=""
-          description=""
-          dueDate=""
           onClick={toggleEditor}
+          updateTasks={updateTasks}
         ></TaskEditor>
       )}
     </>
