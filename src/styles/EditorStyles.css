@@ -1,14 +1,14 @@
 .editor-overlay {
-    position: fixed; /* Ensures it covers the entire screen */
+    position: fixed; 
     top: 0;
     left: 0;
-    width: 100vw; /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
-    background-color: rgba(0, 0, 0, 0.25); /* Semi-transparent black */
-    display: flex; /* Allows centering of the child */
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    z-index: 1000; /* Ensures it sits above other elements */
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 1000; 
 
     .editor-container {
         display:flex;
