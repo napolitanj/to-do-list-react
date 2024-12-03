@@ -28,7 +28,7 @@ function App() {
       <Navbar onClick={toggleEditor}></Navbar>
       <div className="app-interface">
         <Folders folders={folders}></Folders>
-        <TaskList tasks={tasks}></TaskList>
+        <TaskList tasks={tasks} setTasks={setTasks}></TaskList>
       </div>
       {editorVisible && (
         <TaskEditor

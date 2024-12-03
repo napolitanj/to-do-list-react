@@ -2,9 +2,17 @@ import "/src/styles/TaskListStyles.css";
 
 interface Props {
   tasks: [];
+  setTasks: React.Dispatch<
+    React.SetStateAction<{ title: string; description: string; date: string }[]>
+  >;
 }
 
-const TaskList = ({ tasks }: Props) => {
+const TaskList = ({ tasks, setTasks }: Props) => {
+  const removeTask = (indexOfTaskRemoved: number) => {
+    setTasks((prev) => prev.filter((_, index) => index !== indexOfTaskRemoved));
+    console.log(tasks);
+  };
+
   return (
     <>
       <div className="task-list-container">
@@ -23,7 +31,7 @@ const TaskList = ({ tasks }: Props) => {
               <p>{task.description}</p>
               <div className="buttons-container">
                 <button>✔</button>
-                <button>🗑</button>
+                <button onClick={() => removeTask(index)}>🗑</button>
                 <button>✎</button>
               </div>
             </li>
