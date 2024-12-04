@@ -34,6 +34,7 @@ function App() {
         <TaskEditor
           onClick={toggleEditor}
           updateTasks={updateTasks}
+          folders={folders}
         ></TaskEditor>
       )}
     </>

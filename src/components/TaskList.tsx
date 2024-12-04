@@ -7,6 +7,8 @@ interface Props {
   >;
 }
 
+//review the above for setTasks, why is that syntax needed. also, passing argument in button functions
+
 const TaskList = ({ tasks, setTasks }: Props) => {
   const removeTask = (indexOfTaskRemoved: number) => {
     setTasks((prev) => prev.filter((_, index) => index !== indexOfTaskRemoved));
