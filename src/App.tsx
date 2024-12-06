@@ -8,7 +8,10 @@ import { useState } from "react";
 function App() {
   const [editorVisible, setEditorVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const [folders, setFolders] = useState([]);
+  const [folders, setFolders] = useState([
+    { id: 1, title: "Active Tasks" },
+    { id: 2, title: "Completed Tasks" },
+  ]);
 
   const toggleEditor = () => {
     setEditorVisible((prev) => !prev);
@@ -27,7 +30,7 @@ function App() {
     <>
       <Navbar onClick={toggleEditor}></Navbar>
       <div className="app-interface">
-        <Folders folders={folders}></Folders>
+        <Folders folders={folders} setFolders={setFolders}></Folders>
         <TaskList tasks={tasks} setTasks={setTasks}></TaskList>
       </div>
       {editorVisible && (
