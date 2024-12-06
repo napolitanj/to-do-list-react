@@ -20,7 +20,7 @@
         background-color: #E6D1CF;
         padding:1em;
 
-        .title-description-date {
+        .editor-inputs {
             display:flex;
             flex-direction:column;
             justify-content:flex-start;
