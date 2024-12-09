@@ -3,6 +3,7 @@ import { useState } from "react";
 
 interface Props {
   onClick: () => void;
+  folders: [];
   updateTasks: (newTask: {
     title: string;
     description: string;
@@ -10,15 +11,22 @@ interface Props {
   }) => void;
 }
 
-const TaskEditor = ({ onClick, updateTasks }: Props) => {
+const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
+  const [folder, setFolder] = useState([]);
 
   const handleSave = () => {
     const newTask = { title, description, date };
     updateTasks(newTask);
     onClick();
+  };
+
+  const listFolders = (folders) => {
+    return folders
+      .filter((folder) => folder.title !== "Completed Tasks")
+      .map((folder) => <option key={folder.title}>{folder.title}</option>);
   };
 
   return (
@@ -49,6 +57,10 @@ const TaskEditor = ({ onClick, updateTasks }: Props) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
+            <label>
+              <strong>Select a folder</strong>
+            </label>
+            <select value={folder}>{listFolders(folders)}</select>
           </div>
           <div className="button-container">
             <button onClick={handleSave}>Save</button>
