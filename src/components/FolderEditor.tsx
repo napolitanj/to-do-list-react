@@ -3,15 +3,13 @@ import "/src/styles/EditorStyles.css";
 
 interface Props {
   onClick: () => void;
-  addFolder: (newFolder: { title: string; tasks: [] }) => void;
+  addFolder: (newFolder: string) => void;
 }
 
 const FolderEditor = ({ onClick, addFolder }: Props) => {
   const [title, setTitle] = useState("");
-  const tasks = [];
-  const handleSave = () => {
-    const newFolder = { title, tasks };
-    addFolder(newFolder);
+  const handleSave = (title: string) => {
+    addFolder(title);
     onClick();
   };
 
@@ -28,7 +26,7 @@ const FolderEditor = ({ onClick, addFolder }: Props) => {
             ></input>
           </div>
           <div className="button-container">
-            <button onClick={handleSave}>Save</button>
+            <button onClick={() => handleSave(title)}>Save</button>
             <button onClick={onClick}>Discard</button>
           </div>
         </div>

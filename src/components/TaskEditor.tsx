@@ -3,7 +3,7 @@ import { useState } from "react";
 
 interface Props {
   onClick: () => void;
-  folders: [];
+  folders: folder[];
   updateTasks: (newTask: {
     title: string;
     description: string;
@@ -15,7 +15,7 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [folder, setFolder] = useState([]);
+  const [folder, setFolder] = useState("");
 
   const handleSave = () => {
     const newTask = { title, description, date };
@@ -23,10 +23,10 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
     onClick();
   };
 
-  const listFolders = (folders) => {
+  const listFolders = (folders: string[]) => {
     return folders
-      .filter((folder) => folder.title !== "Completed Tasks")
-      .map((folder) => <option key={folder.title}>{folder.title}</option>);
+      .filter((folder) => folder !== "Completed Tasks")
+      .map((folder) => <option key={folder}>{folder}</option>);
   };
 
   return (

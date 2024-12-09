@@ -1,11 +1,8 @@
 import "/src/styles/FolderParentStyles.css";
 
 interface Props {
-  folders: [];
+  folders: string[];
   onClick: () => void;
-  setFolders: React.Dispatch<
-    React.SetStateAction<{ id: number; title: string; tasks: [] }>
-  >;
 }
 
 const Folders = ({ folders, onClick, setFolders }: Props) => {
@@ -25,11 +22,10 @@ const Folders = ({ folders, onClick, setFolders }: Props) => {
         </div>
         <ul className="folder-list">
           {folders.map((folder, index) => (
-            <li key={folder.title}>
+            <li key={folder}>
               <div className="folder-element">
-                <strong>{folder.title}</strong>
-                {folder.title !== "Active Tasks" &&
-                folder.title !== "Completed Tasks" ? (
+                <strong>{folder}</strong>
+                {folder !== "Active Tasks" && folder !== "Completed Tasks" ? (
                   <button onClick={() => removeFolder(index)}>X</button>
                 ) : null}
               </div>

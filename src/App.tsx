@@ -10,10 +10,8 @@ function App() {
   const [taskEditorVisible, setTaskEditorVisible] = useState(false);
   const [folderEditorVisible, setFolderEditorVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const [folders, setFolders] = useState([
-    { title: "Active Tasks", tasks: [] },
-    { title: "Completed Tasks", tasks: [] },
-  ]);
+  const [folders, setFolders] = useState(["Active Tasks", "Completed Tasks"]);
+  const [activeFolder, setActiveFolder] = useState("Active Tasks");
 
   const toggleTaskEditor = () => {
     setTaskEditorVisible((prev) => !prev);
@@ -21,7 +19,6 @@ function App() {
 
   const toggleFolderEditor = () => {
     setFolderEditorVisible((prev) => !prev);
-    console.log("clicks");
   };
 
   const updateTasks = (newTask: {
@@ -32,9 +29,9 @@ function App() {
     setTasks((prev) => [...prev, newTask]);
   };
 
-  const addFolder = (newFolder: { title: string; tasks: [] }) => {
-    if (folders.some((folder) => folder.title === newFolder.title)) {
-      alert("You cannot name two folders the same.");
+  const addFolder = (newFolder: string) => {
+    if (folders.some((folder) => folder === newFolder)) {
+      alert("You cannot give two folders the same name.");
     } else {
       setFolders((prev) => [...prev, newFolder]);
     }
@@ -48,8 +45,14 @@ function App() {
           onClick={toggleFolderEditor}
           folders={folders}
           setFolders={setFolders}
+          activeFolder={activeFolder}
+          setActiveFolder={setActiveFolder}
         ></Folders>
-        <TaskList tasks={tasks} setTasks={setTasks}></TaskList>
+        <TaskList
+          tasks={tasks}
+          setTasks={setTasks}
+          activeFolder={activeFolder}
+        ></TaskList>
       </div>
       {taskEditorVisible && (
         <TaskEditor

@@ -4,6 +4,7 @@ interface Props {
   title: string;
   description: string;
   dueDate: string;
+  folder: string;
 }
 
 const Task = ({ title, description, dueDate }: Props) => {
