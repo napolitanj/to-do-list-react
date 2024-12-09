@@ -3,42 +3,66 @@ import Navbar from "./components/Navbar";
 import TaskEditor from "./components/TaskEditor";
 import Folders from "./components/Folders";
 import TaskList from "./components/TaskList";
+import FolderEditor from "./components/FolderEditor";
 import { useState } from "react";
 
 function App() {
-  const [editorVisible, setEditorVisible] = useState(false);
+  const [taskEditorVisible, setTaskEditorVisible] = useState(false);
+  const [folderEditorVisible, setFolderEditorVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [folders, setFolders] = useState([
-    { id: 1, title: "Active Tasks" },
-    { id: 2, title: "Completed Tasks" },
+    { title: "Active Tasks", tasks: [] },
+    { title: "Completed Tasks", tasks: [] },
   ]);
 
-  const toggleEditor = () => {
-    setEditorVisible((prev) => !prev);
+  const toggleTaskEditor = () => {
+    setTaskEditorVisible((prev) => !prev);
+  };
+
+  const toggleFolderEditor = () => {
+    setFolderEditorVisible((prev) => !prev);
+    console.log("clicks");
   };
 
   const updateTasks = (newTask: {
     title: string;
     description: string;
-    date: date;
+    date: Date;
   }) => {
     setTasks((prev) => [...prev, newTask]);
-    console.log(tasks);
+  };
+
+  const addFolder = (newFolder: { title: string; tasks: [] }) => {
+    if (folders.some((folder) => folder.title === newFolder.title)) {
+      alert("You cannot name two folders the same.");
+    } else {
+      setFolders((prev) => [...prev, newFolder]);
+    }
   };
 
   return (
     <>
-      <Navbar onClick={toggleEditor}></Navbar>
+      <Navbar onClick={toggleTaskEditor}></Navbar>
       <div className="app-interface">
-        <Folders folders={folders} setFolders={setFolders}></Folders>
+        <Folders
+          onClick={toggleFolderEditor}
+          folders={folders}
+          setFolders={setFolders}
+        ></Folders>
         <TaskList tasks={tasks} setTasks={setTasks}></TaskList>
       </div>
-      {editorVisible && (
+      {taskEditorVisible && (
         <TaskEditor
-          onClick={toggleEditor}
+          onClick={toggleTaskEditor}
           updateTasks={updateTasks}
           folders={folders}
         ></TaskEditor>
+      )}
+      {folderEditorVisible && (
+        <FolderEditor
+          onClick={toggleFolderEditor}
+          addFolder={addFolder}
+        ></FolderEditor>
       )}
     </>
   );

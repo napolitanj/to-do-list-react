@@ -26,7 +26,7 @@ const TaskEditor = ({ onClick, updateTasks }: Props) => {
       <div className="editor-overlay">
         <div className="editor-container">
           <h2>Task editor</h2>
-          <div className="title-description-date">
+          <div className="editor-inputs">
             <label>
               <strong>Title</strong>
             </label>
