@@ -3,11 +3,12 @@ import { useState } from "react";
 
 interface Props {
   onClick: () => void;
-  folders: folder[];
+  folders: string[];
   updateTasks: (newTask: {
     title: string;
+    date: string;
     description: string;
-    date: Date;
+    folder: string;
   }) => void;
 }
 
@@ -15,11 +16,15 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [folder, setFolder] = useState("");
+  const [folder, setFolder] = useState(folders[0] || "");
 
-  const handleSave = () => {
-    const newTask = { title, description, date };
-    updateTasks(newTask);
+  const handleSave = (
+    title: string,
+    date: string,
+    description: string,
+    folder: string
+  ) => {
+    updateTasks({ title, date, description, folder });
     onClick();
   };
 
@@ -43,7 +48,7 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
               onChange={(e) => setTitle(e.target.value)}
             ></input>
             <label>
-              <strong>Due Date</strong>
+              <strong>Due string</strong>
             </label>
             <input
               type="date"
@@ -60,10 +65,19 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
             <label>
               <strong>Select a folder</strong>
             </label>
-            <select value={folder}>{listFolders(folders)}</select>
+            <select
+              value={folders[0]}
+              onChange={(e) => setFolder(e.target.value)}
+            >
+              {listFolders(folders)}
+            </select>
           </div>
           <div className="button-container">
-            <button onClick={handleSave}>Save</button>
+            <button
+              onClick={() => handleSave(title, date, description, folder)}
+            >
+              Save
+            </button>
             <button onClick={onClick}>Discard</button>
           </div>
         </div>

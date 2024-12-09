@@ -9,7 +9,9 @@ import { useState } from "react";
 function App() {
   const [taskEditorVisible, setTaskEditorVisible] = useState(false);
   const [folderEditorVisible, setFolderEditorVisible] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<
+    { title: string; description: string; date: string; folder: string }[]
+  >([]);
   const [folders, setFolders] = useState(["Active Tasks", "Completed Tasks"]);
   const [activeFolder, setActiveFolder] = useState("Active Tasks");
 
@@ -25,6 +27,7 @@ function App() {
     title: string;
     description: string;
     date: Date;
+    folder: string;
   }) => {
     setTasks((prev) => [...prev, newTask]);
   };

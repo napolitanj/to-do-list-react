@@ -1,10 +1,15 @@
 import "/src/styles/TaskListStyles.css";
 
 interface Props {
-  tasks: [];
+  tasks: {
+    title: string;
+    description: string;
+    date: Date;
+    folder: string;
+  }[];
   setTasks: React.Dispatch<
     React.SetStateAction<
-      { title: string; description: string; date: string; folder: string }[]
+      { title: string; description: string; date: Date; folder: string }[]
     >
   >;
   activeFolder: string;
@@ -34,7 +39,10 @@ const TaskList = ({ tasks, setTasks, activeFolder }: Props) => {
                       <strong>Due:</strong> {task.date}
                     </p>
                   </div>
-                  <p>{task.description}</p>
+                  <p>
+                    <strong>Description:</strong>
+                    {task.description}
+                  </p>
                   <div className="buttons-container">
                     <button>✔</button>
                     <button onClick={() => removeTask(index)}>🗑</button>
