@@ -24,10 +24,11 @@
         align-items:center;
         flex-direction:column;
         gap:2em;
+        width:100%;
         
         .folder-element {
             display:flex;
-            width:90%;
+            width:100%;
             border: 1px solid;
             padding: 1em;
             display:flex;
@@ -38,6 +39,7 @@
 
         li {
             list-style-type: none;
+            width:100%;
         }
     }
 }

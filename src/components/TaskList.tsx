@@ -43,6 +43,7 @@ const TaskList = ({ tasks, setTasks, activeFolder }: Props) => {
                     <strong>Description:</strong>
                     {task.description}
                   </p>
+                  <p></p>
                   <div className="buttons-container">
                     <button>✔</button>
                     <button onClick={() => removeTask(index)}>🗑</button>
