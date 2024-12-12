@@ -5,7 +5,7 @@
     font-family: 'Calibri', sans-serif;
     display:flex;
     justify-content:flex-start;
-    align-items:center;
+    align-items:flex-end;
     flex-direction:column;
 
     .folder-header {
@@ -23,14 +23,13 @@
         justify-content:center;
         align-items:center;
         flex-direction:column;
-        gap:2em;
+        gap:1em;
         width:100%;
         
         .folder-element {
             display:flex;
             width:100%;
             border: 1px solid;
-            padding: 1em;
             display:flex;
             justify-content:space-between;
             gap: 2em
@@ -40,6 +39,11 @@
         li {
             list-style-type: none;
             width:100%;
+        }
+
+        button {
+            color:black;
+            z-index:1
         }
     }
 }
