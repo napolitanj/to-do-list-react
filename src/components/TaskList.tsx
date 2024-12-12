@@ -29,7 +29,7 @@ const TaskList = ({ tasks, setTasks, activeFolder }: Props) => {
         <div className="task-list">
           {tasks.map(
             (task, index) =>
-              (task.folder = activeFolder ? (
+              task.folder === activeFolder && (
                 <li key={index}>
                   <div className="title-date-container">
                     <p>
@@ -50,7 +50,7 @@ const TaskList = ({ tasks, setTasks, activeFolder }: Props) => {
                     <button>✎</button>
                   </div>
                 </li>
-              ) : null)
+              )
           )}
         </div>
       </div>

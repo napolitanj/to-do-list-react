@@ -31,7 +31,11 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
   const listFolders = (folders: string[]) => {
     return folders
       .filter((folder) => folder !== "Completed Tasks")
-      .map((folder) => <option key={folder}>{folder}</option>);
+      .map((folder) => (
+        <option key={folder} value={folder}>
+          {folder}
+        </option>
+      ));
   };
 
   return (
@@ -71,6 +75,7 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
           </div>
           <div className="button-container">
             <button
+              value={folder}
               onClick={() => handleSave(title, date, description, folder)}
             >
               Save
