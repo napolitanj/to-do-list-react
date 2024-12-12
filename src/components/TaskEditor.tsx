@@ -65,10 +65,7 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
             <label>
               <strong>Select a folder</strong>
             </label>
-            <select
-              value={folders[0]}
-              onChange={(e) => setFolder(e.target.value)}
-            >
+            <select value={folder} onChange={(e) => setFolder(e.target.value)}>
               {listFolders(folders)}
             </select>
           </div>
