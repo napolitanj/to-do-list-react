@@ -23,12 +23,12 @@ const Folders = ({ folders, onClick, setFolders }: Props) => {
         <ul className="folder-list">
           {folders.map((folder, index) => (
             <li key={folder}>
-              <div className="folder-element">
+              <button className="folder-element">
                 <strong>{folder}</strong>
                 {folder !== "Active Tasks" && folder !== "Completed Tasks" ? (
                   <button onClick={() => removeFolder(index)}>X</button>
                 ) : null}
-              </div>
+              </button>
             </li>
           ))}
         </ul>
