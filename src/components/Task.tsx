@@ -23,7 +23,11 @@ const Task = ({
           <h3 className="task-title">{title}</h3>
           <p className="due-date">
             <strong>Due: </strong>
-            {dueDate}
+            {new Date(dueDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "2-digit",
+            })}
           </p>
         </div>
         <p className="task-description">
