@@ -12,3 +12,19 @@
     }
 
 }
+
+@media (max-width: 800px) {
+    .task-list {
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .task-list-container {
+        width: 60%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+}

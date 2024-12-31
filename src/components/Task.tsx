@@ -39,7 +39,6 @@ const Task = ({
           <button className="discard" onClick={removeTask}>
             🗑
           </button>
-          <button className="edit">✎</button>
         </div>
       </div>
     </>

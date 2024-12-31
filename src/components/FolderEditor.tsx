@@ -23,6 +23,7 @@ const FolderEditor = ({ onClick, addFolder }: Props) => {
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              maxLength={30}
             ></input>
           </div>
           <div className="button-container">

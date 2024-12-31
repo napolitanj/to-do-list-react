@@ -37,3 +37,11 @@
         }
     }
 }
+
+@media (max-width: 800px) {
+    .folder-header {
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+    }
+}

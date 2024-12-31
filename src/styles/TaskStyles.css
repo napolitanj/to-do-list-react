@@ -12,17 +12,24 @@ li {
     list-style-type:none;
     text-align:left;
     background-color: #D2A295;
+    max-width:10em;
+    border-radius: 1em;
 
     .task-header {
         display:flex;
         justify-content:space-between;
-        align-items:center;
+        align-items:flex-start;
+        flex-direction:column;
     }
 
     .title-date-container {
         gap:2em;
         display:flex;
         justify-content:space-between;
+    }
+
+    .task-description {
+        word-wrap: break-word; 
     }
 
     .buttons-container {

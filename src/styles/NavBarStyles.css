@@ -11,10 +11,29 @@
     .header-title {
         font-size: 5vw;
     }
+
+    button {
+        height: 3em;
+    }
 }
 
 @media (max-width: 800px) {
     .header-nav {
-        flex-direction:column;
+       
+        padding-top:1em;
+        padding-bottom:1em;
+
+        .header-title {
+            font-size: 7vw;
+        }
+
+        button {
+            height: 4em;
+            width:10em;
+        }
+    }
+
+    img {
+        display:none;
     }
 }

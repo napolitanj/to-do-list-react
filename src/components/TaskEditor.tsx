@@ -50,6 +50,7 @@ const TaskEditor = ({ onClick, updateTasks, folders }: Props) => {
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              maxLength={35}
             ></input>
             <label>
               <strong>Due string</strong>

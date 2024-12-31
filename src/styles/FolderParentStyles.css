@@ -9,13 +9,19 @@
     flex-direction:column;
 
     .folder-header {
+        box-sizing:border-box;
         display:flex;
         justify-content: center;
-        gap:2em;
+        align-items:center;
+        gap:1em;
         padding:1em;
         border-bottom: 2px black solid;
         width:100%;
         margin-bottom:1em;
+
+        button {
+            height: 3em;
+        }
     }
     
     .folder-list {
@@ -30,9 +36,16 @@
             display:flex;
             width:100%;
             border: 1px solid;
-            display:flex;
+            padding:1em;
             justify-content:space-between;
-            gap: 2em
+            align-items:center;
+            flex-grow:1;
+            gap: 2em;
+            
+            strong {
+                 word-wrap: break-word;
+                 max-width:80%; 
+            }
         }
 
         .folder-element.active {
@@ -49,5 +62,17 @@
             color:black;
             z-index:1
         }
+    }
+}
+
+@media (max-width: 800px) {
+    .folder-container {
+        width: 40%;
+
+        .folder-list .folder-element strong {
+            word-wrap: break-word;
+            max-width:65%; 
+       }
+    
     }
 }
