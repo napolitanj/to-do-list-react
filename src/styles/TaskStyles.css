@@ -1,11 +1,33 @@
+li {
+    list-style-type: none;
+}
+
 .task-container {
 
     background-color: #A5AAAB;
     font-family: 'Calibri', sans-serif;
+    padding:1em;
+    margin:1em;
+    border: solid 1px;
+    list-style-type:none;
+    text-align:left;
+    background-color: #D2A295;
 
     .task-header {
         display:flex;
         justify-content:space-between;
         align-items:center;
     }
+
+    .title-date-container {
+        gap:2em;
+        display:flex;
+        justify-content:space-between;
+    }
+
+    .buttons-container {
+        display:flex;
+        justify-content: space-around;
+    }
+
 }

@@ -3,9 +3,18 @@ import "/src/styles/FolderParentStyles.css";
 interface Props {
   folders: string[];
   onClick: () => void;
+  setFolders: React.Dispatch<React.SetStateAction<string[]>>;
+  activeFolder: string;
+  setActiveFolder: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Folders = ({ folders, onClick, setFolders }: Props) => {
+const Folders = ({
+  folders,
+  onClick,
+  setFolders,
+  activeFolder,
+  setActiveFolder,
+}: Props) => {
   const removeFolder = (indexOfFolderRemoved: number) => {
     setFolders((prev) =>
       prev.filter((_, index) => index !== indexOfFolderRemoved)
@@ -23,7 +32,12 @@ const Folders = ({ folders, onClick, setFolders }: Props) => {
         <ul className="folder-list">
           {folders.map((folder, index) => (
             <li key={folder}>
-              <button className="folder-element">
+              <button
+                className={`folder-element ${
+                  folder === activeFolder ? "active" : ""
+                }`}
+                onClick={() => setActiveFolder(folder)}
+              >
                 <strong>{folder}</strong>
                 {folder !== "Active Tasks" && folder !== "Completed Tasks" ? (
                   <button onClick={() => removeFolder(index)}>X</button>

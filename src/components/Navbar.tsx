@@ -13,17 +13,6 @@ const Navbar = ({ onClick }: Props) => {
         <button onClick={onClick} className="addTask">
           Add a Task
         </button>
-        <form className="" role="search">
-          <input
-            className=""
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          ></input>
-          <button className="" type="submit">
-            Search
-          </button>
-        </form>
       </nav>
     </>
   );

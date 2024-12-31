@@ -35,6 +35,10 @@
             gap: 2em
         }
 
+        .folder-element.active {
+            background-color: #d3d3d3; /* Highlight the active folder */
+        }
+
 
         li {
             list-style-type: none;
