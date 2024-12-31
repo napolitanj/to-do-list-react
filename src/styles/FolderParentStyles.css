@@ -7,6 +7,7 @@
     justify-content:flex-start;
     align-items:flex-end;
     flex-direction:column;
+    border-right: 1px solid black;
 
     .folder-header {
         box-sizing:border-box;
@@ -49,7 +50,7 @@
         }
 
         .folder-element.active {
-            background-color: #d3d3d3; /* Highlight the active folder */
+            background-color: #c7b4d7; /* Highlight the active folder */
         }
 
 

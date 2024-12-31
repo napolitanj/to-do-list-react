@@ -12,7 +12,7 @@ li {
     list-style-type:none;
     text-align:left;
     background-color: #D2A295;
-    max-width:10em;
+    max-width:15em;
     border-radius: 1em;
 
     .task-header {
@@ -37,4 +37,10 @@ li {
         justify-content: space-around;
     }
 
+}
+
+@media (max-width: 800px) {
+    .task-container {
+        max-width:10em;
+    }
 }

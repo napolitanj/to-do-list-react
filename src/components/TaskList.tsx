@@ -27,15 +27,21 @@ const TaskList = ({ tasks, setTasks, activeFolder }: Props) => {
         i === index ? { ...task, folder: "Completed Tasks" } : task
       )
     );
+    console.log(tasks);
   };
 
   return (
     <div className="task-list-container">
       <h2>Your tasks</h2>
       <div className="task-list">
-        {tasks.map(
-          (task, index) =>
-            task.folder === activeFolder && (
+        {tasks.map((task, index) => {
+          const isTaskVisible =
+            (activeFolder === "Active Tasks" &&
+              task.folder !== "Completed Tasks") ||
+            task.folder === activeFolder;
+
+          return (
+            isTaskVisible && (
               <li key={index}>
                 <Task
                   title={task.title}
@@ -47,7 +53,8 @@ const TaskList = ({ tasks, setTasks, activeFolder }: Props) => {
                 />
               </li>
             )
-        )}
+          );
+        })}
       </div>
     </div>
   );

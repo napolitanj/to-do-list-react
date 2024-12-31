@@ -4,6 +4,7 @@
     align-items: center;
     background-color: #62757B;
     font-family: 'Calibri', sans-serif;
+    border-bottom: 1px solid black;
 
     .header-icon {
         height:7vw;
