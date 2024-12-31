@@ -10,7 +10,7 @@ function App() {
   const [taskEditorVisible, setTaskEditorVisible] = useState(false);
   const [folderEditorVisible, setFolderEditorVisible] = useState(false);
   const [tasks, setTasks] = useState<
-    { title: string; description: string; date: string; folder: string }[]
+    { title: string; description: string; date: Date; folder: string }[]
   >([]);
   const [folders, setFolders] = useState(["Active Tasks", "Completed Tasks"]);
   const [activeFolder, setActiveFolder] = useState("Active Tasks");
@@ -26,10 +26,10 @@ function App() {
   const updateTasks = (newTask: {
     title: string;
     description: string;
-    date: Date;
+    date: string;
     folder: string;
   }) => {
-    setTasks((prev) => [...prev, newTask]);
+    setTasks((prev) => [...prev, { ...newTask, date: new Date(newTask.date) }]);
   };
 
   const addFolder = (newFolder: string) => {

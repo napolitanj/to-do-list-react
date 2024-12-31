@@ -25,9 +25,7 @@ const Folders = ({
       <div className="folder-container">
         <div className="folder-header">
           <h2>Folders</h2>
-          <button onClick={onClick} folders={folders}>
-            Create a Folder
-          </button>
+          <button onClick={onClick}>Create a Folder</button>
         </div>
         <ul className="folder-list">
           {folders.map((folder, index) => (
